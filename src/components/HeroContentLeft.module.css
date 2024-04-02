@@ -55,3 +55,9 @@
     width: 100%;
   }
 }
+
+.ghost {
+  position: absolute;
+  top: rem(-300px);
+  right: rem(300px);
+}

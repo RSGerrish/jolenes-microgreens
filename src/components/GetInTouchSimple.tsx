@@ -21,25 +21,6 @@ export function GetInTouchSimple() {
 
   const [opened, { open, close }] = useDisclosure(false);
 
-  /*
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm('contact_service', 'contact_form', form.getInputProps, {
-        publicKey: 'YOUR_PUBLIC_KEY',
-      })
-      .then(
-        () => {
-          console.log('SUCCESS');
-        },
-        (error) => {
-          console.log('FAILED...', error.text);
-        },
-      );
-  };
-  */
-
   return (
     <div className={classes.git}>
       <Container size="sm">
