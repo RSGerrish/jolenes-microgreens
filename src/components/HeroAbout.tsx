@@ -1,4 +1,4 @@
-import { Container, Text, } from '@mantine/core';
+import { Container, Text } from '@mantine/core';
 import classes from './HeroAbout.module.css';
 
 export function HeroAbout() {

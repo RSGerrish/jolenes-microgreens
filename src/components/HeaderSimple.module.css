@@ -31,3 +31,9 @@
     color: var(--mantine-color-white);
   }
 }
+
+.ghost {
+  position: absolute;
+  top: rem(-100px);
+  right: rem(100px);
+}

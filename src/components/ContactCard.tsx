@@ -1,5 +1,4 @@
-import { Card, Overlay, Text, Title, Grid, Center, Image } from '@mantine/core';
-import contactUsImage from '../assets/contact-us-buttons.svg';
+import { Card, Overlay, Title, Grid, Center } from '@mantine/core';
 import classes from './ContactCard.module.css';
 
 export function ContactCard() {

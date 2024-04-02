@@ -5,16 +5,41 @@ import { useDisclosure, useWindowScroll } from '@mantine/hooks';
 import joleneLogo from '../assets/WebLogo2.png';
 import classes from './HeaderSimple.module.css';
 
+interface ScrollPosition {
+  x: number;
+  y: number;
+}
+
+const aboutPos: Partial<ScrollPosition> = {
+  x: 0, 
+  y: 850
+}
+
+const contactPos: Partial<ScrollPosition> = {
+  x: 0,
+  y: 2000
+}
+
+const wherePos: Partial<ScrollPosition> = {
+  x: 0,
+  y: 2000
+}
+
 const links = [
-  { link: {x: 0, y: 850}, label: 'About' },
-  { link: {x:0, y: 2000}, label: 'Contact' },
-  { link: '/learn', label: 'Where To Buy' },
+  { link: '#about', pos: aboutPos, label: 'About' },
+  { link: '#contact', pos: contactPos, label: 'Contact' },
+  { link: '#where', pos: wherePos, label: 'Where To Buy' },
 ];
 
 export function HeaderSimple() {
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(links[0].link);
   const [scroll, scrollTo] = useWindowScroll();
+
+  const currentPos: Partial<ScrollPosition> = {
+    x: scroll.x,
+    y: scroll.y
+  }
 
   const items = links.map((link) => (
     <a
@@ -25,7 +50,7 @@ export function HeaderSimple() {
       onClick={(event) => {
         event.preventDefault();
         setActive(link.link);
-        scrollTo(link.link);
+        scrollTo(link.pos);
       }}
     >
       {link.label}
@@ -47,6 +72,7 @@ export function HeaderSimple() {
 
         <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
       </Container>
+      <div className={classes.ghost}>{currentPos.x}</div>
     </header>
   );
 }

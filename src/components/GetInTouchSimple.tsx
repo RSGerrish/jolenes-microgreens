@@ -1,4 +1,4 @@
-import { TextInput, Textarea, SimpleGrid, Group, Title, Text, Button, Modal, Container, Anchor } from '@mantine/core';
+import { TextInput, Textarea, SimpleGrid, Group, Title, Text, Button, Modal, Container } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { useDisclosure } from '@mantine/hooks';
 import emailjs from '@emailjs/browser';
@@ -42,7 +42,6 @@ export function GetInTouchSimple() {
 
   return (
     <div className={classes.git}>
-      <Anchor href="#contact" />
       <Container size="sm">
         <Modal opened={opened} onClose={close} withCloseButton={false} centered>
           {
