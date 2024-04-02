@@ -12,8 +12,7 @@ export function HeroContentLeft() {
       <Container className={classes.container} size="md">
         <Title className={classes.title}>Charlotte Local Microgreens</Title>
         <Text className={classes.description} size="xl" mt="xl">
-          Jolene's Microgreens is an indoor farm allowing for the ultimate in environment control
-          allowing for crisp, delicious greens all year 'round.'
+        Nestled in the heart of Steele Creek, NC our farm is dedicated to bringing the freshest microgreens straight to your table. Join us on a journey to healthier living as we cultivate a greener, brighter future—one delicious harvest at a time.
         </Text>
 
         <Button variant="gradient" size="xl" radius="xl" className={classes.control}>

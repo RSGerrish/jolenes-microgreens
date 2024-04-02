@@ -1,19 +1,20 @@
 import { useState } from 'react';
 import { Container, Group, Burger, Image } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
+import { useDisclosure, useWindowScroll } from '@mantine/hooks';
 `import { MantineLogo } from '@mantinex/mantine-logo';`
 import joleneLogo from '../assets/WebLogo2.png';
 import classes from './HeaderSimple.module.css';
 
 const links = [
-  { link: '/about', label: 'About' },
-  { link: '/pricing', label: 'Contact' },
+  { link: {x: 0, y: 850}, label: 'About' },
+  { link: {x:0, y: 2000}, label: 'Contact' },
   { link: '/learn', label: 'Where To Buy' },
 ];
 
 export function HeaderSimple() {
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(links[0].link);
+  const [scroll, scrollTo] = useWindowScroll();
 
   const items = links.map((link) => (
     <a
@@ -24,6 +25,7 @@ export function HeaderSimple() {
       onClick={(event) => {
         event.preventDefault();
         setActive(link.link);
+        scrollTo(link.link);
       }}
     >
       {link.label}
@@ -37,7 +39,7 @@ export function HeaderSimple() {
           src={joleneLogo} 
           h={55}
           w="auto"
-          fit="containt"
+          fit="contain"
         />
         <Group gap={10} visibleFrom="xs">
           {items}

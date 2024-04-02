@@ -1,0 +1,21 @@
+.git {
+  padding: rem(60px) 0 rem(60px);
+  background-image: url('../assets/bg_Broccoli.jpg');
+  background-size: cover;
+}
+
+.title {
+  color: var(--mantine-color-white);
+  font-family: Greycliff CF, var(--mantine-font-family);
+  font-weight: 900;
+  order: 2;
+  text-align: center;
+  opacity: 1;
+}
+
+.label {
+  color: var(--mantine-color-white);
+  font-weight: 700;
+  font-size: rem(16px);
+  opacity: 1;
+}

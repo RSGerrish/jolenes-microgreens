@@ -1,9 +1,11 @@
-import { Card, Overlay, Button, Text, Title, Grid } from '@mantine/core';
-import classes from './ContactForm.module.css';
+import { Card, Overlay, Text, Title, Grid, Center, Image } from '@mantine/core';
+import contactUsImage from '../assets/contact-us-buttons.svg';
+import classes from './ContactCard.module.css';
 
-export function ContactForm() {
+export function ContactCard() {
   return (
-    <Card radius="md" className={classes.card}>
+    <Center>
+    <Card shadow="sm" radius="md" className={classes.card} withBorder>
       <Overlay className={classes.overlay} opacity={0.55} zIndex={0} />
 
       <div className={classes.content}>
@@ -27,5 +29,6 @@ export function ContactForm() {
         </Grid>
       </div>
     </Card>
+    </Center>
   );
 }
