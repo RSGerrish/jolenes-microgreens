@@ -22,7 +22,7 @@ const contactPos: Partial<ScrollPosition> = {
 
 const wherePos: Partial<ScrollPosition> = {
   x: 0,
-  y: 2000
+  y: 2250
 }
 
 const maboutPos: Partial<ScrollPosition> = {

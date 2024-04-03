@@ -30,7 +30,7 @@ export function GetInTouch() {
       <div className={classes.wrapper}>
         <div className={classes.contacts}>
           <Overlay
-            gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, .45) 30%)"
+            gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .45) 30%)"
             opacity={1}
             zIndex={0}
             radius={'var(--mantine-radius-lg)'}

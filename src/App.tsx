@@ -5,6 +5,7 @@ import { HeaderSimple } from "./components/HeaderSimple";
 import { HeroContentLeft } from "./components/HeroContentLeft";
 import { HeroAbout } from "./components/HeroAbout";
 import { GetInTouch } from "./components/GetInTouch";
+import { WTBSection } from "./components/WTBSection";
 
 export default function App() {
   return (
@@ -13,8 +14,9 @@ export default function App() {
         <HeroContentLeft />
         <HeroAbout />
         <Center>
-          <GetInTouch />
+            <GetInTouch />
         </Center>
+        <WTBSection />
     </MantineProvider>
   );
 }
