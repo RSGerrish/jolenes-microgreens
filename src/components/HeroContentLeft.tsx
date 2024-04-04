@@ -1,24 +1,9 @@
 import { Overlay, Container, Title, Button, Text } from '@mantine/core';
-import { useWindowScroll } from '@mantine/hooks';
 import classes from './HeroContentLeft.module.css';
-
-interface ScrollPosition {
-  x: number;
-  y: number;
-}
-
-const contactPos: Partial<ScrollPosition> = {
-  x: 0,
-  y: 1750
-}
+import { useNavigate } from 'react-router-dom';
 
 export function HeroContentLeft() {
-  const [scroll, scrollTo] = useWindowScroll();
-
-  const currentPos: Partial<ScrollPosition> = {
-    x: scroll.x,
-    y: scroll.y
-  }
+  const navigate = useNavigate();
 
   return (
     <div className={classes.hero}>
@@ -35,12 +20,11 @@ export function HeroContentLeft() {
 
         <Button variant="gradient" size="xl" radius="xl" className={classes.control} onClick={(event) => {
           event.preventDefault();
-          scrollTo(contactPos);
+          navigate("/get-in-touch");
         }}>
           Contact Us
         </Button>
       </Container>
-      <div className={classes.ghost}>{currentPos.x}</div>
     </div>
   );
 }

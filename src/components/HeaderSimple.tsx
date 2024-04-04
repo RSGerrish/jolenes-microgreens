@@ -1,95 +1,36 @@
-import { useState } from 'react';
 import { Container, Group, Burger, Image, Menu } from '@mantine/core';
-import { useDisclosure, useWindowScroll } from '@mantine/hooks';
-`import { MantineLogo } from '@mantinex/mantine-logo';`
+import { useDisclosure } from '@mantine/hooks';
 import joleneLogo from '../assets/WebLogo2.png';
 import classes from './HeaderSimple.module.css';
-
-interface ScrollPosition {
-  x: number;
-  y: number;
-}
-
-const aboutPos: Partial<ScrollPosition> = {
-  x: 0, 
-  y: 850
-}
-
-const contactPos: Partial<ScrollPosition> = {
-  x: 0,
-  y: 1750
-}
-
-const wherePos: Partial<ScrollPosition> = {
-  x: 0,
-  y: 2250
-}
-
-const maboutPos: Partial<ScrollPosition> = {
-  x: 0, 
-  y: 700
-}
-
-const mcontactPos: Partial<ScrollPosition> = {
-  x: 0,
-  y: 1650
-}
-
-const mwherePos: Partial<ScrollPosition> = {
-  x: 0,
-  y: 2000
-}
+import { NavLink } from 'react-router-dom';
 
 const links = [
-  { link: '#about', pos: aboutPos, label: 'About' },
-  { link: '#contact', pos: contactPos, label: 'Contact' },
-  { link: '#where', pos: wherePos, label: 'Where To Buy' },
-];
-
-const mlinks = [
-  { link: '#about', pos: maboutPos, label: 'About' },
-  { link: '#contact', pos: mcontactPos, label: 'Contact' },
-  { link: '#where', pos: mwherePos, label: 'Where To Buy' },
+  { link: '/about', label: 'About' },
+  { link: '/get-in-touch', label: 'Contact' },
+  { link: '/where-to-buy', label: 'Where To Buy' },
 ];
 
 export function HeaderSimple() {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
-  const [scroll, scrollTo] = useWindowScroll();
-
-  const currentPos: Partial<ScrollPosition> = {
-    x: scroll.x,
-    y: scroll.y
-  }
 
   const items = links.map((link) => (
-    <a
+    <NavLink
       key={link.label}
-      href={link.link}
+      to={link.link}
       className={classes.link}
-      data-active={active === link.link || undefined}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(link.link);
-        scrollTo(link.pos);
-      }}
+      onClick={toggle}
     >
       {link.label}
-    </a>
+    </NavLink>
   ));
 
-  const menuItems = mlinks.map((link) => (
+  const menuItems = links.map((link) => (
     <Menu.Item
-      component="a"
+      component={NavLink}
       key={link.label}
-      href={link.link}
+      to={link.link}
       className={classes.link}
-      onClick={(event) => {
-        event.preventDefault();
-        toggle();
-        setActive(link.link);
-        scrollTo(link.pos);
-      }}
+      onClick={toggle}
     >
       {link.label}
     </Menu.Item>
@@ -98,12 +39,14 @@ export function HeaderSimple() {
   return (
     <header className={classes.header}>
       <Container size="md" className={classes.inner}>
-        <Image 
-          src={joleneLogo} 
-          h={55}
-          w="auto"
-          fit="contain"
-        />
+        <NavLink to="/">
+          <Image 
+            src={joleneLogo} 
+            h={55}
+            w="auto"
+            fit="contain"
+          />
+        </NavLink>
         <Group gap={10} visibleFrom="xs">
           {items}
         </Group>
@@ -118,7 +61,6 @@ export function HeaderSimple() {
           </Menu.Dropdown>
         </Menu>
       </Container>
-      <div className={classes.ghost}>{currentPos.x}</div>
     </header>
   );
 }
