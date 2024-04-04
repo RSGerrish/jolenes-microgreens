@@ -1,4 +1,4 @@
-import { Container, Group, Anchor, Image, rem } from '@mantine/core';
+import { Container, Group, Image, rem } from '@mantine/core';
 import { NavLink } from 'react-router-dom';
 import logoNoOutline from '../assets/Logo No Outline.png';
 import classes from './FooterSimple.module.css';

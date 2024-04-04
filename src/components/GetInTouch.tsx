@@ -1,4 +1,4 @@
-import { Center, Paper, Text, TextInput, Textarea, Button, Group, SimpleGrid, Modal, Overlay, Container, rem } from '@mantine/core';
+import { Center, Paper, Text, TextInput, Textarea, Button, Group, SimpleGrid, Modal, Overlay, Container } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { useDisclosure } from '@mantine/hooks';
 import emailjs from '@emailjs/browser';
