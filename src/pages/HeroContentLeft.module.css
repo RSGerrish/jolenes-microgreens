@@ -57,7 +57,7 @@
 }
 
 .ghost {
-  position: absolute;
-  top: rem(-300px);
-  right: rem(300px);
+  min-width: rem(30px);
+  min-height: rem(30px);
+  background-color: var(--mantine-color-teal);
 }

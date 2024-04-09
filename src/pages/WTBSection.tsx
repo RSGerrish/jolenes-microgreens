@@ -1,5 +1,5 @@
 import { Flex, Title, Stack } from '@mantine/core';
-import { WTBCard } from "./WTBCard";
+import { WTBCard } from "../components/WTBCard";
 import classes from "./WTBSection.module.css"
 import imgFM from '../assets/farmers-market.jpg';
 import imgFT from '../assets/farm-table.jpg';

@@ -2,7 +2,7 @@ import { Center, Paper, Text, TextInput, Textarea, Button, Group, SimpleGrid, Mo
 import { useForm } from '@mantine/form';
 import { useDisclosure } from '@mantine/hooks';
 import emailjs from '@emailjs/browser';
-import { ContactIconsList } from './ContactIcons';
+import { ContactIconsList } from '../components/ContactIcons';
 import classes from './GetInTouch.module.css';
 
 export function GetInTouch() {
@@ -49,7 +49,6 @@ export function GetInTouch() {
             }
           </Modal>
           <form className={classes.form} onSubmit={form.onSubmit((values) => {
-            console.log('Submit Pressed');
             emailjs
             .send('contact_service', 'contact_form', values, {
               publicKey: '5u7y04Qa7bcAKzuxm',

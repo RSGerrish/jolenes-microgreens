@@ -1,0 +1,25 @@
+.container {
+  margin-bottom: rem(120px);
+}
+
+.root {
+  display: flex;
+  justify-content: space-between;
+}
+
+.qpRoot {
+  min-height: rem(75px)
+}
+
+.qpInput {
+  height: auto;
+}
+
+
+.bInput{
+  height: rem(175px);
+}
+
+.cWidth {
+  width: auto;
+}
