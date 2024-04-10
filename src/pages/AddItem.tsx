@@ -1,9 +1,10 @@
 import { ActionIcon, Badge, Box, Button, Center, Container, Grid, Group, InputBase, Modal, NumberInput, SegmentedControl, ScrollArea, SimpleGrid, Skeleton, Stack, Text, TextInput, Textarea, FileInput, Pill, rem, useMantineTheme, Combobox, useCombobox, Input } from '@mantine/core';
 import { IconCirclePlus } from '@tabler/icons-react';
-import { useState, useEffect, FormEvent, ReactNode } from 'react';
+import { useState, useEffect, FormEvent, ReactNode, Context } from 'react';
 import { ItemCard } from '../components/ItemCard';
 import classes from './AddItem.module.css';
 import { useDisclosure } from '@mantine/hooks';
+import { useItemsContext } from '../hooks/useItemsContext'
 
 const PRIMARY_COL_HEIGHT = rem(500);
 
@@ -194,14 +195,22 @@ export function AddItem() {
       open()
     }
   }
+  
+  const {items, dispatch} = useItemsContext()
 
   const handleGetItems = async () => {
     const response = await fetch('http://localhost:4000/api/items')
     const json = await response.json()
 
       if (response.ok) {
+        console.log('dispatching SET_ITEMS')
+        dispatch({type: 'SET_ITEMS', payload: json})
+
+        console.log("json", json)
         setProducts(json)
       }
+
+    setProducts(items[0])
   }
 
   const handleGetItem = async (id: string) => {
@@ -221,7 +230,6 @@ export function AddItem() {
   }
 
   useEffect(() => {
-    handleGetItems()
     toggleLoad()
   }, [])
 
